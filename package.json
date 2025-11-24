@@ -1,0 +1,21 @@
+{
+  "name": "sistema-pedidos-online",
+  "version": "0.0.1",
+  "description": "Trabalho final de programacao",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "node build/index.js",
+    "start-dev": "nodemon",
+    "build": "tsc"
+  },
+  "author": "Luís Sophia e Iamily",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^5.0.5",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.11",
+    "prisma": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
