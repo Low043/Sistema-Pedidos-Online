@@ -1,14 +1,24 @@
-import funcionarioController from './controllers/Funcionario';
-import comidaController from './controllers/Comida';
+import MainRouter from './routes';
 import express from 'express';
 
-const app = express();
-app.set('view engine', 'ejs');
-const port = 3000;
+class API {
+    private expressInstance: express.Express;
+    private mainRouter: MainRouter;
 
-funcionarioController(app);
-comidaController(app);
+    constructor() {
+        this.expressInstance = express();
+        this.mainRouter = new MainRouter();
 
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
+        this.mainRouter.applyRoutesTo(this.expressInstance);
+        this.expressInstance.set('view engine', 'ejs');
+    }
+
+    public listen(port: number) {
+        this.expressInstance.listen(port, () => {
+            console.log(`API rodando em http://localhost:${port}`);
+        });
+    }
+}
+
+const api = new API();
+api.listen(3000);
