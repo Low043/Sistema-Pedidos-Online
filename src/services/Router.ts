@@ -12,6 +12,7 @@ export default class Router {
 
         if (fatherRouter) {
             fatherRouter.expressRouter.use(this.expressRouter);
+            this.prefix = path.join(fatherRouter.prefix, prefix);
         }
     }
 
