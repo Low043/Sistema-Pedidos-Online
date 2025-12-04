@@ -20,20 +20,24 @@ export default class Router {
         app.use(this.expressRouter);
     }
 
-    public get(endpoint: string, handler: Handler) {
+    protected get(endpoint: string, handler: Handler) {
         this.expressRouter.get(this.getFullPath(endpoint), handler);
     }
 
-    public post(endpoint: string, handler: Handler) {
+    protected post(endpoint: string, handler: Handler) {
         this.expressRouter.post(this.getFullPath(endpoint), handler);
     }
 
-    public put(endpoint: string, handler: Handler) {
+    protected put(endpoint: string, handler: Handler) {
         this.expressRouter.put(this.getFullPath(endpoint), handler);
     }
 
-    public delete(endpoint: string, handler: Handler) {
+    protected delete(endpoint: string, handler: Handler) {
         this.expressRouter.delete(this.getFullPath(endpoint), handler);
+    }
+
+    protected applyMiddleware(middleware: Handler) {
+        this.expressRouter.use(middleware);
     }
 
     private getFullPath(endpoint: string): string {
