@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/crudProdutos.css">
+    <script src="../js/crudProdutos.js" defer></script>
+</head>
+
+<body>
+    <div id="cabecalho">
+        <div id="title">
+            <h1>Gerenciador de Cardápio</h1>
+            <p>Gerencie os pratos do seu restaurante</p>
+        </div>
+
+        <div class="pesquisa">
+            <input type="text" id="buscar" placeholder="Pesquisar prato...">
+        </div>
+    </div>
+
+    <div id="body">
+        <!-- BOTÃO -->
+        <button id="abrirForm">Adicionar Novo Prato</button>
+
+        <!-- MODAL -->
+        <div id="overlay">
+            <div id="modal">
+
+                <h2>Adicionar Prato</h2>
+
+                <form id="formPrato">
+
+                    <label>Nome do Prato</label>
+                    <input id="nome" type="text" placeholder="Ex: Frango Xadrez" required>
+
+                    <label>Descrição</label>
+                    <textarea id="desc" placeholder="Ex: Massa com molho à bolonhesa"></textarea>
+
+                    <label>Preço (R$)</label>
+                    <input id="preco" type="number" placeholder="Ex: 35.90" required>
+
+                    <div class="botoes">
+                        <button type="submit" class="salvar">Salvar</button>
+                        <button type="button" id="fechar" class="cancelar">Cancelar</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+
+        <!-- ONDE OS PRATOS APARECEM -->
+        <div id="opcoes">
+            <h2>Ativos</h2>
+            <div id="ativos"></div>
+
+            <h2>Desativados</h2>
+            <div id="desativados"></div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

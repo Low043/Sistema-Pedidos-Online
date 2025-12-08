@@ -1,0 +1,141 @@
+/* ======== CONFIGURAÇÕES GERAIS ======== */
+body {
+    margin: 0;
+    padding: 0;
+    background: #F5EEDF;
+    /* fundo bege da imagem */
+}
+
+/* ======== CABEÇALHO ======== */
+#cabecalho {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#cabecalho h1 {
+    font-size: 48px;
+    margin: 0;
+    color: #000;
+    font-family: "Chilanka", cursive;
+}
+#cabecalho p {
+    font-size: 34px;
+    margin: 0;
+    color: #000;
+    font-family: "Chilanka", cursive;
+}
+
+/* ======== CARDS DO GRÁFICO (Pendentes / Concluídos / Total) ======== */
+/* container */
+#grafico {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    font-family: "Inter", sans-serif;
+}
+
+/* base dos cards */
+#grafico>div {
+    width: 120px;
+    height: 80px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    flex-direction: column;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* hover – sombra mais forte + leve aumento */
+#grafico>div:hover {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    transform: translateY(-3px);
+}
+
+/* label pequeno (título dentro do card) */
+#grafico .label {
+    font-size: 13px;
+    opacity: 0.9;
+    margin: 0;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* número grande */
+#grafico .valor {
+    font-size: 28px;
+    line-height: 1;
+    margin-top: 6px;
+}
+
+/* cores como antes */
+#pendentes {
+    background: #7A0E25;
+}
+
+#concluidos {
+    background: #4F6355;
+}
+
+#total {
+    background: #6B3F27;
+}
+
+/* ======== CORPO PRINCIPAL ======== */
+#pedidos {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+    font-family: "Inter", sans-serif;
+}
+
+/* caixas */
+#pedidosPendentes,
+#pedidosConcluidos {
+    width: 450px;
+    min-height: 380px;
+    border-radius: 18px;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: height .2s ease;
+}
+
+/* cores iguais às da imagem */
+#pedidosPendentes {
+    background: #B74961;
+    color: white;
+    font-size: 18px;
+}
+
+#pedidosConcluidos {
+    background: #9AB9A2;
+    font-size: 18px;
+    color: white;
+}
+#buscar{
+    display: flex;
+    justify-content: center;
+}
+#body #buscar input {
+    width: 500px;
+    margin: 25px;
+    display: flex;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    background: #f5f7fa;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+#body #buscar input:focus {
+    outline: none;
+    border-color: #4f8df5;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(79, 141, 245, 0.15);
+}
+
