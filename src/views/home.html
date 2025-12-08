@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doce Café - Início</title>
+    <link rel="stylesheet" href="../styles/home.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+    <header class="header-container">
+        <div class="logo">
+            
+            <a href="home.html">Doce Café</a> 
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="" class="search-input">
+            <button class="search-button">🔍</button> 
+        </div>
+        
+        <div class="header-icons">
+            <a href="login.html" class="icon-link" aria-label="Acessar perfil do usuário">👤</a>
+            <a href="carrinho.html" class="icon-link" aria-label="Ver carrinho de compras">🛒</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="product-grid" id="product-grid">
+           
+        </div>
+    </main>
+
+    <script>
+       
+        const productsData = [
+            { id: 1, name: 'Bolo de Chocolate', price: 17.50, description: 'Delicioso bolo de chocolate com cobertura de brigadeiro.', imgSrc: 'via.placeholder.com' },
+            { id: 2, name: 'Café Expresso', price: 5.00, description: 'Café fresco e forte, 50ml.', imgSrc: 'via.placeholder.com' },
+            { id: 3, name: 'Pão de Queijo', price: 3.50, description: 'Tradicional pão de queijo mineiro, quentinho.', imgSrc: 'via.placeholder.com' },
+            { id: 4, name: 'Torta de Limão', price: 12.00, description: 'Torta gelada com recheio cremoso de limão.', imgSrc: 'via.placeholder.com' },
+            { id: 5, name: 'Croissant Manteiga', price: 6.00, description: 'Croissant francês original, amanteigado.', imgSrc: 'via.placeholder.com' },
+            { id: 6, name: 'Mousse de Maracujá', price: 9.00, description: 'Cremoso e azedinho na medida certa.', imgSrc: 'via.placeholder.com' }
+        ];
+
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            productsData.forEach(product => {
+                const productLink = document.createElement('a');
+                productLink.href = `produto.html?id=${product.id}`;
+                productLink.classList.add('product-link');
+
+                productLink.innerHTML = `
+                    <div class="product-card">
+                        <img src="${product.imgSrc}" alt="${product.name}" class="product-image">
+                        <p class="product-name">${product.name}</p>
+                    </div>
+                `;
+                grid.appendChild(productLink);
+            });
+        }
+
+        renderProducts();
+    </script>
+</body>
+</html>

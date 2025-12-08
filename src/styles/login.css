@@ -1,0 +1,89 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #964d6a; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh;           
+    overflow: hidden;       
+}
+
+.header-top {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    color: white;
+    font-size: 0.9em;
+}
+
+.header-top span {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.header-top .create-account {
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.login-card {
+    background-color: #fdfaf7; 
+    padding: 40px;
+    border-radius: 20px;     
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    width: 100%;
+    max-width: 350px;
+    text-align: left;
+}
+
+.login-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box; 
+    font-size: 1em;
+    background-color: #f9f8f6; 
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #b3d9c7; 
+    border: none;
+    border-radius: 8px;
+    color: #333;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #a0c9b4;
+}

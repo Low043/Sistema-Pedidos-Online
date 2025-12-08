@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doce Café - Carrinho</title>
+    <link rel="stylesheet" href="../styles/carrinho.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="home.html" style="text-decoration: none; color: inherit;">Doce café</a></h1>
+            <p class="subtitle">carrinho</p>
+        </header>
+
+        <main id="cart-items">
+            <!-- Os itens do carrinho serão gerados dinamicamente aqui pelo JavaScript -->
+        </main>
+
+        <footer class="cart-footer">
+            <div class="total-section">
+                <span id="cart-total-text">Total:</span>
+                <span id="cart-total-amount">R$ 0.00</span>
+            </div>
+            <button class="checkout-button">Finalizar compra</button>
+        </footer>
+    </div>
+
+    <script>
+        
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        const cartItemsEl = document.getElementById('cart-items');
+        const cartTotalAmountEl = document.getElementById('cart-total-amount');
+
+       
+        window.removeItem = function(cartItemId) {
+           cart = cart.filter(item => item.cartItemId !== cartItemId);
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            renderCart();
+        }
+
+        function renderCart() {
+            cartItemsEl.innerHTML = '';
+            let totalAmount = 0;
+
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '<p style="text-align: center; margin-top: 20px;">Seu carrinho está vazio.</p>';
+            } else {
+                cart.forEach(item => {
+                    const itemEl = document.createElement('div');
+                    itemEl.classList.add('cart-item');
+
+                    const itemTotal = item.price * item.quantity;
+                    totalAmount += itemTotal;
+                    
+                    itemEl.innerHTML = `
+                        <div class="item-details">
+                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                            <p>${item.name} (Qtd: ${item.quantity})</p>
+                        </div>
+                        <div class="item-controls">
+                            <span>R$ ${itemTotal.toFixed(2)}</span>
+                            <button class="remove-item-btn" onclick="removeItem(${item.cartItemId})">Remover</button>
+                        </div>
+                    `;
+                    cartItemsEl.appendChild(itemEl);
+                });
+            }
+
+            cartTotalAmountEl.textContent = `R$ ${totalAmount.toFixed(2)}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</body>
+</html>
