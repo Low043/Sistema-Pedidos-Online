@@ -1,14 +1,25 @@
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client"
 }
 
 datasource db {
-    provider = "postgresql"
+  provider = "postgresql"
+}
+
+model Produto {
+  id           Int      @id @default(autoincrement())
+  nome         String   @db.VarChar(20)
+  descricao    String   @db.VarChar(120)
+  valor        Decimal
+  ativo        Boolean  @default(true)
+  deletado     Boolean  @default(false) // soft delete
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
 }
 
 model User {
-    id        Int      @id @default(autoincrement())
-    name      String?  @db.VarChar(20) @unique
-    password  String   @db.VarChar(20)
-    isAdmin   Boolean  @default(false)
+  id       Int     @id @default(autoincrement())
+  name     String? @unique @db.VarChar(20)
+  password String  @db.VarChar(20)
+  isAdmin  Boolean @default(false)
 }
