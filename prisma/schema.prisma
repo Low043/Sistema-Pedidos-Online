@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Produto {
+  id           Int      @id @default(autoincrement())
+  nome         String   @db.VarChar(20)
+  descricao    String   @db.VarChar(120)
+  valor        Decimal
+  ativo        Boolean  @default(true)
+  deletado     Boolean  @default(false) // soft delete
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+}
