@@ -41,6 +41,6 @@ export default class Router {
     }
 
     private getFullPath(endpoint: string): string {
-        return path.join(this.prefix, endpoint);
+        return path.join(this.prefix, endpoint).replaceAll('\\', '/');
     }
 }

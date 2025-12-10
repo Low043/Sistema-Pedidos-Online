@@ -1,4 +1,4 @@
-import type { User as UserData } from '@prisma/client';
+import type { User as UserData } from '../lib/generated/client';
 import prisma from '../lib/prisma';
 
 export type { UserData };
