@@ -1,6 +1,5 @@
 import { Express, Router as ExpressRouter } from 'express';
 import type { Handler } from 'express';
-import path from 'path';
 
 export default class Router {
     private expressRouter: ExpressRouter;
@@ -12,7 +11,7 @@ export default class Router {
 
         if (fatherRouter) {
             fatherRouter.expressRouter.use(this.expressRouter);
-            this.prefix = path.join(fatherRouter.prefix, prefix);
+            this.prefix = this.joinPaths(fatherRouter.prefix, prefix);
         }
     }
 
@@ -21,26 +20,28 @@ export default class Router {
     }
 
     protected get(endpoint: string, handler: Handler) {
-        this.expressRouter.get(this.getFullPath(endpoint), handler);
+        this.expressRouter.get(this.joinPaths(this.prefix, endpoint), handler);
     }
 
     protected post(endpoint: string, handler: Handler) {
-        this.expressRouter.post(this.getFullPath(endpoint), handler);
+        this.expressRouter.post(this.joinPaths(this.prefix, endpoint), handler);
     }
 
     protected put(endpoint: string, handler: Handler) {
-        this.expressRouter.put(this.getFullPath(endpoint), handler);
+        this.expressRouter.put(this.joinPaths(this.prefix, endpoint), handler);
     }
 
     protected delete(endpoint: string, handler: Handler) {
-        this.expressRouter.delete(this.getFullPath(endpoint), handler);
+        this.expressRouter.delete(this.joinPaths(this.prefix, endpoint), handler);
     }
 
     protected applyMiddleware(middleware: Handler) {
         this.expressRouter.use(middleware);
     }
 
-    private getFullPath(endpoint: string): string {
-        return path.join(this.prefix, endpoint).replaceAll('\\', '/');
+    private joinPaths(start: string, end: string): string {
+        let base = start.endsWith('/') ? start.slice(0, -1) : start;
+        let path = end.startsWith('/') ? end : `/${end}`;
+        return base + path;
     }
 }
