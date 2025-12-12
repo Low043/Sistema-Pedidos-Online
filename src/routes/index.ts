@@ -4,6 +4,7 @@ import logger from '../middlewares/logger';
 import Router from '../services/Router';
 import UserRoutes from './User';
 import ProdutosRouter from './Produtos';
+import CarrinhoRouter from './Carrinho';
 
 export default class MainRouter extends Router {
     constructor() {
@@ -13,6 +14,7 @@ export default class MainRouter extends Router {
 
         this.get('/status', exampleController.getStatus);
         new UserRoutes(this);
-        new ProdutosRouter(this)
+        new ProdutosRouter(this);
+        new CarrinhoRouter(this);
     }
 }
