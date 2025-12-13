@@ -6,8 +6,8 @@ const stylesPath = path.join(__dirname, '../styles');
 const scriptsPath = path.join(__dirname, '../js');
 
 export default {
-    getIndexPage: (req: Request, res: Response) => {
-        return res.sendFile(path.join(viewsPath, 'login.html'));
+    getPage: (pageName: string, req: Request, res: Response) => {
+        return res.sendFile(path.join(viewsPath, `${pageName}.html`));
     },
 
     getStyleFile: (req: Request, res: Response) => {

@@ -5,7 +5,8 @@ export default class WebRouter extends Router {
     constructor() {
         super('/');
 
-        this.get('/', webController.getIndexPage);
+        this.get('/', webController.getPage.bind(null, 'login'));
+        this.get('/home', webController.getPage.bind(null, 'home'));
         this.get('/styles/:file', webController.getStyleFile);
         this.get('/js/:file', webController.getScriptFile);
     }

@@ -5,6 +5,7 @@ import Router from '../services/Router';
 import UserRoutes from './User';
 import ProdutosRouter from './Produtos';
 import CarrinhoRouter from './Carrinho';
+import AuthRouter from './auth';
 
 export default class MainRouter extends Router {
     constructor() {
@@ -16,5 +17,6 @@ export default class MainRouter extends Router {
         new UserRoutes(this);
         new ProdutosRouter(this);
         new CarrinhoRouter(this);
+        new AuthRouter(this);
     }
 }

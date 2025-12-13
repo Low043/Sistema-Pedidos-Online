@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Personalizado</title>
-    
+    <title>Login</title>
     <link rel="stylesheet" href="../styles/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/login.js" defer></script>
 </head>
 <body>
 
-    <div class="header-top">
+    <header>
         <span>Entrar</span>
-        <span class="create-account">Criar uma conta</span>
-    </div>
+        <span class="not-selected">Criar uma conta</span>
+    </header>
 
-    <div class="login-card">
-        <h1 class="login-title">Login</h1>
+    <form>
+        <h1>Login</h1>
 
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" class="form-input">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" maxlength="20">
         </div>
 
         <div class="form-group">
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" class="form-input">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" maxlength="20">
         </div>
 
-        <button class="login-button">Salvar</button>
-    </div>
+        <button>Enviar</button>
+    </form>
 
 </body>
 </html>

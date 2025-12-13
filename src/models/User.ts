@@ -1,6 +1,7 @@
 import type { User as UserData } from '../lib/generated/client';
 import prisma from '../lib/prisma';
 
+type CreateUserData = Omit<UserData, 'id' | 'isAdmin'> & { id?: number; isAdmin?: boolean; };
 export type { UserData };
 
 export default class User {
@@ -12,14 +13,17 @@ export default class User {
         return await prisma.user.findUnique({ where: { id: id } });
     }
 
+    static async getByName(name: string) {
+        return await prisma.user.findUnique({ where: { name: name } });
+    }
+
     static async getAdmins() {
         return await prisma.user.findMany({ where: { isAdmin: true } });
     }
 
-    static async create(data: UserData) {
+    static async create(data: CreateUserData) {
         try {
-            await prisma.user.create({ data });
-            return true;
+            return await prisma.user.create({ data });
         } catch (error) {
             return false;
         }
@@ -27,8 +31,7 @@ export default class User {
 
     static async update(id: number, data: Partial<UserData>) {
         try {
-            await prisma.user.update({ where: { id: id }, data });
-            return true;
+            return await prisma.user.update({ where: { id: id }, data });
         } catch (error) {
             return false;
         }
