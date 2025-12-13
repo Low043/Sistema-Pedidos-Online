@@ -1,15 +1,19 @@
-import MainRouter from './routes';
+import APIRouter from './routes';
+import WebRouter from './routes/web';
 import express from 'express';
 
 class API {
     private expressInstance: express.Express;
-    private mainRouter: MainRouter;
+    private apiRouter: APIRouter;
+    private webRouter: WebRouter;
 
     constructor() {
         this.expressInstance = express();
-        this.mainRouter = new MainRouter();
+        this.apiRouter = new APIRouter();
+        this.webRouter = new WebRouter();
 
-        this.mainRouter.applyRoutesTo(this.expressInstance);
+        this.apiRouter.applyRoutesTo(this.expressInstance);
+        this.webRouter.applyRoutesTo(this.expressInstance);
         this.expressInstance.set('view engine', 'ejs');
     }
 
