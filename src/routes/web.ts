@@ -7,6 +7,8 @@ export default class WebRouter extends Router {
 
         this.get('/', webController.getPage.bind(null, 'login'));
         this.get('/home', webController.getPage.bind(null, 'home'));
+        this.get('/carrinho', webController.getPage.bind(null, 'carrinho'));
+        this.get('/produto/:id', webController.getPage.bind(null, 'produto'));
         this.get('/styles/:file', webController.getStyleFile);
         this.get('/js/:file', webController.getScriptFile);
     }

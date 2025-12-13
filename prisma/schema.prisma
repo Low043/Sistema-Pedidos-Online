@@ -21,6 +21,7 @@ model Produto {
   nome         String   @db.VarChar(20)
   descricao    String   @db.VarChar(120)
   valor        Decimal
+  imagemUrl    String   @db.VarChar(200)
   ativo        Boolean  @default(true)
   deletado     Boolean  @default(false) // soft delete
   criadoEm     DateTime @default(now())
