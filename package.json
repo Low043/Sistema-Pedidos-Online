@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node build/index.js",
     "start-dev": "nodemon",
-    "build": "tsc"
+    "build": "rimraf build && tsc && copyfiles -u 1 src/**/*.html src/**/*.css build/"
   },
   "author": "Luís Sophia e Iamily",
   "license": "ISC",
@@ -24,6 +24,8 @@
     "@prisma/adapter-pg": "^7.1.0",
     "@prisma/client": "^7.1.0",
     "@types/express": "^5.0.6",
-    "@types/pg": "^8.15.6"
+    "@types/pg": "^8.15.6",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^6.1.2"
   }
 }
