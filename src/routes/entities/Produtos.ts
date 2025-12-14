@@ -6,5 +6,8 @@ export default class ProdutosRouter extends Router {
         super('/produtos', fatherRouter);
         this.get('/', produtosController.getProdutos);
         this.get('/:id', produtosController.getProdutoById);
+        this.post('/', produtosController.create);
+        this.put('/:id', produtosController.update);
+        this.delete('/:id', produtosController.delete);
     }
 }
