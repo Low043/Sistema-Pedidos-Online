@@ -10,6 +10,7 @@ export default class WebRouter extends Router {
         this.get('/carrinho', webController.getPage.bind(null, 'carrinho'));
         this.get('/produto/:id', webController.getPage.bind(null, 'produto'));
         this.get('/styles/:file', webController.getStyleFile);
+        this.get('/assets/:file', webController.getAssetFile);
         this.get('/js/:file', webController.getScriptFile);
     }
 }

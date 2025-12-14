@@ -14,6 +14,10 @@ export default {
         return res.sendFile(path.join(stylesPath, req.params.file));
     },
 
+    getAssetFile: (req: Request, res: Response) => {
+        return res.sendFile(path.join(__dirname, '../assets', req.params.file));
+    },
+
     getScriptFile: (req: Request, res: Response) => {
         return res.sendFile(path.join(scriptsPath, req.params.file));
     }

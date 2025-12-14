@@ -32,39 +32,20 @@ header .logo a {
     color: #4a2c2c; 
 }
 
-header .search-bar {
+header .icons {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    padding: 5px 10px;
-    flex-grow: 1; 
-    max-width: 400px;
-    margin: 0 20px; 
-}
-
-header .search-bar input {
-    border: none;
-    background: transparent;
-    outline: none;
-    width: 100%;
-    font-family: sans-serif; 
-}
-
-header .search-bar button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    color: #777;
+    gap: 24px;
 }
 
 header .icons a {
-    font-size: 1.5rem;
-    margin-left: 15px;
+    height: 20px;
+}
+
+header .icons a img {
+    height: 100%;
     cursor: pointer;
-    color: #4a2c2c;
+    aspect-ratio: 1/1;
 }
 
 main {
