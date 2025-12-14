@@ -121,6 +121,8 @@ function openEditModal(produto) {
 
 function buildPedidosCards(pedidos) {
     const container = document.querySelector('section#pedidos');
+    container.innerHTML = '';
+
     pedidos.forEach((pedido) => {
         if (pedido.concluido) return;
 
@@ -154,10 +156,16 @@ function buildPedidosCards(pedidos) {
         card.appendChild(completeButton);
         container.appendChild(card);
     });
+
+    if (container.innerHTML === '') {
+        container.innerHTML = '<p>Nenhum pedido pendente.</p>';
+    }
 }
 
 function buildProdutosCards(produtos) {
     const container = document.querySelector('section#produtos');
+    container.innerHTML = '';
+
     produtos.forEach((produto) => {
         const card = document.createElement('div');
         card.classList.add('card', 'produto-card');
@@ -175,6 +183,10 @@ function buildProdutosCards(produtos) {
 
         container.appendChild(card);
     });
+
+    if (container.innerHTML === '') {
+        container.innerHTML = '<p>Nenhum produto encontrado.\</p>';
+    }
 }
 
 axios.get('/api/pedidos').then((response) => buildPedidosCards(response.data));

@@ -23,7 +23,11 @@ form.addEventListener('submit', async (e) => {
     try {
         const response = await axios.post(`/api/auth/${formMode}`, { name, password });
         sessionStorage.setItem('user', JSON.stringify(response.data.user));
-        window.location.href = '/home';
+        if (response.data.user.isAdmin) {
+            window.location.href = '/admin';
+        } else {
+            window.location.href = '/home';
+        }
     } catch (error) {
         return alert(error.response.data.error || 'Erro desconhecido');
     }
