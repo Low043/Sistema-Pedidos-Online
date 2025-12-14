@@ -40,6 +40,7 @@ header h1 {
 .item-details {
     display: flex;
     align-items: center;
+    margin-left: 10px;
 }
 
 .item-img {
@@ -130,7 +131,7 @@ header h1 {
 }
 
 .checkout-button {
-    background-color: #b3c19b;
+    background-color: #45c23a;
     /* Cor do botão finalizar compra */
     border: none;
     padding: 10px 20px;
@@ -141,8 +142,13 @@ header h1 {
     font-weight: bold;
 }
 
-.checkout-button:hover {
-    background-color: #9fb089;
+.checkout-button:disabled {
+    background-color: #b3c19b;
+    cursor: not-allowed;
+}
+
+.checkout-button:enabled:hover {
+    background-color: #318c29;
 }
 
 .remove-item-btn {
@@ -185,6 +191,7 @@ header h1 {
     display: flex;
     align-items: center;
     text-align: right;
+    margin-right: 10px;
 }
 
 .total-section {

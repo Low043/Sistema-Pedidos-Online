@@ -2,7 +2,10 @@ import prisma from '../lib/prisma';
 
 export default class Carrinho {
     static async getUserCarrinho(userId: number) {
-        return await prisma.itemCarrinho.findMany({ where: { userId } });
+        return await prisma.itemCarrinho.findMany({
+            where: { userId },
+            include: { produto: true }
+        });
     }
 
     static async addItemToCarrinho(userId: number, produtoId: number, quantidade: number) {
