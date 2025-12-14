@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doce Café - Produto</title>
+    <title>Doce Café</title>
     <link rel="stylesheet" href="../styles/produto.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/produto.js" defer></script>
     
 </head>
 <body>
     <header>
-        <h1><a href="home.html" style="text-decoration: none; color: inherit;">Doce café</a></h1>
+        <div class="logo">
+            <a href="/home">Doce Café</a> 
+        </div>
     </header>
 
     <main class="product-container">
@@ -30,68 +34,5 @@
             <button class="add-to-cart">Adicionar ao carrinho</button>
         </div>
     </main>
-
-    <script>
-        const productsData = [
-            { id: 1, name: 'Bolo de Chocolate', price: 17.50, description: 'Delicioso bolo de chocolate com cobertura de brigadeiro.', imgSrc: 'via.placeholder.com' },
-            { id: 2, name: 'Café Expresso', price: 5.00, description: 'Café fresco e forte, 50ml.', imgSrc: 'via.placeholder.com' },
-            { id: 3, name: 'Pão de Queijo', price: 3.50, description: 'Tradicional pão de queijo mineiro, quentinho.', imgSrc: 'via.placeholder.com' },
-            { id: 4, name: 'Torta de Limão', price: 12.00, description: 'Torta gelada com recheio cremoso de limão.', imgSrc: 'via.placeholder.com' },
-            { id: 5, name: 'Croissant Manteiga', price: 6.00, description: 'Croissant francês original, amanteigado.', imgSrc: 'via.placeholder.com' },
-            { id: 6, name: 'Mousse de Maracujá', price: 9.00, description: 'Cremoso e azedinho na medida certa.', imgSrc: 'via.placeholder.com' }
-        ];
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = parseInt(urlParams.get('id'));
-        const product = productsData.find(p => p.id === productId);
-
-        if (product) {
-            document.getElementById('product-name').textContent = product.name;
-            document.getElementById('product-price').textContent = product.price.toFixed(2);
-            document.getElementById('product-description').textContent = product.description;
-            document.getElementById('product-img').src = product.imgSrc;
-            document.getElementById('product-img').alt = product.name;
-            document.title = `Doce Café - ${product.name}`;
-        } else {
-            document.querySelector('.product-container').innerHTML = '<p>Produto não encontrado.</p>';
-        }
-        
-        const decrementBtn = document.getElementById('decrement');
-        const incrementBtn = document.getElementById('increment');
-        const quantityInput = document.getElementById('quantity');
-        const addToCartBtn = document.querySelector('.add-to-cart');
-        
-        decrementBtn.addEventListener('click', () => {
-            let currentValue = parseInt(quantityInput.value);
-            if (currentValue > 1) {
-                quantityInput.value = currentValue - 1;
-            }
-        });
-
-        incrementBtn.addEventListener('click', () => {
-            let currentValue = parseInt(quantityInput.value);
-            quantityInput.value = currentValue + 1;
-        });
-
-        addToCartBtn.addEventListener('click', () => {
-            const quantity = parseInt(quantityInput.value);
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            
-            const newItem = {
-                cartItemId: Date.now(), 
-                productId: product.id,
-                name: product.name,
-                price: product.price,
-                quantity: quantity,
-                img: product.imgSrc
-            };
-            
-            cart.push(newItem);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            
-            alert(`${quantity}x ${product.name} adicionado(s) ao carrinho!`);
-            window.location.href = 'home.html';
-        });
-    </script>
 </body>
 </html>

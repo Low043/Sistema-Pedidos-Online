@@ -6,4 +6,10 @@ export default {
         const produtos = await Produtos.getAll();
         return res.json(produtos);
     },
+
+    getProdutoById: async (req: Request, res: Response) => {
+        const { id } = req.params;
+        const produto = await Produtos.getById(Number(id));
+        return res.json(produto);
+    }
 }

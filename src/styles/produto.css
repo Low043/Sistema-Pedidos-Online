@@ -1,6 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #fcf9f4;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Caveat', cursive;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -9,14 +15,15 @@ body {
     min-height: 100vh;
 }
 
-header h1 {
-    font-family: 'Homemade Apple', cursive;
-    color: #4a4a4a;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    align-self: flex-start;
-    width: 100%;
-    max-width: 700px;
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header .logo a {
+    font-size: 2.5rem; 
+    font-weight: 700;
+    color: #4a2c2c; 
 }
 
 .product-container {
@@ -29,9 +36,7 @@ header h1 {
 }
 
 .image-box {
-    background-color: #e0d8cf;
     border-radius: 8px;
-    padding: 10px;
     flex-basis: 300px;
     flex-shrink: 0;
 }
