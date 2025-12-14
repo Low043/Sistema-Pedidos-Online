@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node build/index.js",
     "start-dev": "nodemon",
-    "build": "rimraf build && tsc && copyfiles -u 1 src/**/*.html src/**/*.css build/"
+    "build": "rimraf build && tsc && copyfiles -u 1 src/**/*.html src/**/*.css src/assets/* build/"
   },
   "author": "Luís Sophia e Iamily",
   "license": "ISC",
