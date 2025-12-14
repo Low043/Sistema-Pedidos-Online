@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import Carrinho from '../models/Carrinho';
+import Carrinho from '../../models/Carrinho';
 
 export default {
     getCart: async (req: Request, res: Response) => {

@@ -1,5 +1,5 @@
-import Router from '../services/Router';
-import carrinhoController from '../controllers/Carrinho';
+import carrinhoController from '../../controllers/entities/Carrinho';
+import Router from '../../services/Router';
 
 export default class CarrinhoRouter extends Router {
     constructor(fatherRouter: Router) {

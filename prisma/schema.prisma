@@ -14,6 +14,7 @@ model User {
   isAdmin  Boolean @default(false)
 
   itensCarrinho ItemCarrinho[]
+  pedidos       Pedido[]
 }
 
 model Produto {
@@ -28,6 +29,7 @@ model Produto {
   atualizadoEm DateTime @default(now()) @updatedAt
 
   itensCarrinho ItemCarrinho[]
+  itensPedido   ItemPedido[]
 }
 
 model ItemCarrinho {
@@ -39,5 +41,29 @@ model ItemCarrinho {
   atualizadoEm DateTime @default(now()) @updatedAt
 
   user User @relation(fields: [userId], references: [id])
+  produto Produto @relation(fields: [produtoId], references: [id])
+}
+
+model Pedido {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  valorTotal   Decimal  @default(0)
+  concluido    Boolean  @default(false)
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @default(now()) @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+  itensPedido ItemPedido[]
+}
+
+model ItemPedido {
+  id           Int      @id @default(autoincrement())
+  pedidoId     Int
+  produtoId    Int
+  quantidade   Int      @default(1)
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @default(now()) @updatedAt
+
+  pedido Pedido @relation(fields: [pedidoId], references: [id])
   produto Produto @relation(fields: [produtoId], references: [id])
 }

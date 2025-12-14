@@ -1,5 +1,5 @@
-import Router from '../services/Router';
-import produtosController from '../controllers/Produtos';
+import produtosController from '../../controllers/entities/Produtos';
+import Router from '../../services/Router';
 
 export default class ProdutosRouter extends Router {
     constructor(fatherRouter: Router) {

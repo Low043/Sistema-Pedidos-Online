@@ -47,3 +47,8 @@ function renderCart(cart) {
 }
 
 axios.get(`/api/carrinho/${userId}`).then((response) => renderCart(response.data));
+
+purchaseButton.addEventListener('click', async () => {
+    await axios.post(`/api/pedidos/finish/${userId}`);
+    window.location.href = '/home';
+});

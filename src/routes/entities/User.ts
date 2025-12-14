@@ -1,5 +1,5 @@
-import userController from '../controllers/User';
-import Router from '../services/Router';
+import userController from '../../controllers/entities/User';
+import Router from '../../services/Router';
 
 export default class UserRouter extends Router {
     constructor(fatherRouter: Router) {
