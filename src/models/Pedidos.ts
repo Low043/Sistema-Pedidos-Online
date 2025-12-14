@@ -3,7 +3,12 @@ import prisma from '../lib/prisma';
 
 export default class Pedidos {
     static async getAll() {
-        return await prisma.pedido.findMany({ include: { itensPedido: true } });
+        return await prisma.pedido.findMany({
+            include: {
+                user: true,
+                itensPedido: { include: { produto: true } },
+            }
+        });
     }
 
     static async finishUserOrder(userId: number) {

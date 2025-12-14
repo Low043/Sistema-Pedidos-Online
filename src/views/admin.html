@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doce Café</title>
+    <link rel="stylesheet" href="../styles/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/admin.js" defer></script>
+</head>
+<body>
+    <div class="opacity">
+        <div class="produto-modal">
+            <h3>Editar produto</h3>
+            <img id="close-modal" src="../assets/x.svg">
+            <img id="produto-preview" src="" alt="A imagem vai aparecer aqui">
+            <form>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" maxlength="20" required>
+
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" maxlength="120" required></textarea>
+
+                <label for="imgUrl">Url da imagem:</label>
+                <input type="url" id="imgUrl" maxlength="200" required>
+
+                <label for="preco">Preço:</label>
+                <input type="text" id="preco" required>
+            </form>
+            <div class="buttons">
+                <button id="delete-produto">Deletar</button>
+                <button id="save-produto">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <header>
+            <div class="container">
+                <h1>Doce café</h1>
+                <p class="subtitle">Painél do Admin</p>
+            </div>
+            <a href="/" id="logout"><img src="../assets/logout.svg"></a>
+        </header>
+        
+        <h2>Pedidos</h2>
+        <section id="pedidos"></section>
+
+        <div class="section-title-container">
+            <h2>Produtos</h2>
+            <button id="create-produto">Criar Produto</button>
+        </div>
+        <section id="produtos"></section>
+    </main>
+</body>
+</html>
