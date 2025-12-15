@@ -2,7 +2,7 @@ services:
     api:
         build: .
         ports:
-            - '3000:3000'
+            - '80:80'
         environment:
             - DATABASE_URL=postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@db:5432/${DATABASE_NAME}
         depends_on:

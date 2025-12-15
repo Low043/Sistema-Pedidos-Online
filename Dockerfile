@@ -13,5 +13,5 @@ COPY scripts/setup.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/setup.sh
 ENTRYPOINT ["/usr/local/bin/setup.sh"]
 
-EXPOSE 3000
+EXPOSE 80
 CMD ["npm", "run", "start"]
